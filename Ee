@@ -1,0 +1,515 @@
+// Pins for 7 segment display cathode
+
+int pinA = 8; 
+
+int pinB = 7;
+
+int pinC = 6;
+
+int pinD = 5; 
+
+int pinE = 4;
+
+int pinF = 3;
+
+int pinG = 2;
+
+
+
+// Arrays to hold segment patterns for 0-9
+
+int zero[7] = {1,1,1,1,1,1,0};
+
+int one[7] = {0,1,1,0,0,0,0};
+
+int two[7] = {1,1,0,1,1,0,1};
+
+int three[7] = {1,1,1,1,0,0,1};  
+
+int four[7] = {0,1,1,0,0,1,1};
+
+int five[7] = {1,0,1,1,0,1,1};
+
+int six[7] = {1,0,1,1,1,1,1};
+
+int seven[7] = {1,1,1,0,0,0,0};
+
+int eight[7] = {1,1,1,1,1,1,1};
+
+int nine[7] = {1,1,1,1,0,1,1};
+
+
+
+void setup() {
+
+  
+
+  // Set all pins as output
+
+  pinMode(pinA, OUTPUT);
+
+  pinMode(pinB, OUTPUT);
+
+  pinMode(pinC, OUTPUT);
+
+  pinMode(pinD, OUTPUT);
+
+  pinMode(pinE, OUTPUT);
+
+  pinMode(pinF, OUTPUT);
+
+  pinMode(pinG, OUTPUT);
+
+  
+
+}
+
+
+
+void loop() {
+
+
+
+  // Display numbers 0-9
+
+  for(int i=0; i<10; i++) {
+
+
+
+    digitalWrite(pinA, number[i][0]);
+
+    digitalWrite(pinB, number[i][1]); 
+
+    digitalWrite(pinC, number[i][2]);
+
+    digitalWrite(pinD, number[i][3]);
+
+    digitalWrite(pinE, number[i][4]);
+
+    digitalWrite(pinF, number[i][5]);  
+
+    digitalWrite(pinG, number[i][6]);
+
+
+
+    delay(1000); // 1 second delay
+
+  }
+
+
+
+}
+
+// Pins for 7 segment display anode
+
+int pinA = 8;  
+
+int pinB = 7;
+
+int pinC = 6;
+
+int pinD = 5;
+
+int pinE = 4;
+
+int pinF = 3;
+
+int pinG = 2;
+
+
+
+// Inverted arrays for common anode
+
+int zero[7] = {0,0,0,0,0,0,1}; 
+
+int one[7] = {1,0,0,1,1,1,1};
+
+int two[7] = {0,0,1,0,0,1,0};
+
+int three[7] = {0,0,0,0,1,1,0}; 
+
+int four[7] = {1,0,0,1,1,0,0};
+
+int five[7] = {0,1,0,0,1,0,0};
+
+int six[7] = {0,1,0,0,0,0,0}; 
+
+int seven[7] = {0,0,0,1,1,1,1};
+
+int eight[7] = {0,0,0,0,0,0,0};
+
+int nine[7] = {0,0,0,0,1,0,0};
+
+
+
+void setup() {
+
+  
+
+  pinMode(pinA, OUTPUT);
+
+  pinMode(pinB, OUTPUT);
+
+  pinMode(pinC, OUTPUT);
+
+  pinMode(pinD, OUTPUT);
+
+  pinMode(pinE, OUTPUT);
+
+  pinMode(pinF, OUTPUT);
+
+  pinMode(pinG, OUTPUT);
+
+  
+
+}
+
+
+
+void loop() {
+
+
+
+  for(int i=0; i<10; i++) {
+
+
+
+    digitalWrite(pinA, number[i][0]);
+
+    digitalWrite(pinB, number[i][1]);
+
+    digitalWrite(pinC, number[i][2]);
+
+    digitalWrite(pinD, number[i][3]);
+
+    digitalWrite(pinE, number[i][4]);
+
+    digitalWrite(pinF, number[i][5]);
+
+    digitalWrite(pinG, number[i][6]);
+
+    
+
+    delay(1000); 
+
+  }
+
+  
+
+}
+
+trafic lights
+const int redPin = 13;    // Red LED is connected to digital pin 13
+
+const int yellowPin = 12; // Yellow LED is connected to digital pin 12
+
+const int greenPin = 11;  // Green LED is connected to digital pin 11
+
+
+
+void setup() {
+
+  // Set the LED pins as OUTPUT
+
+  pinMode(redPin, OUTPUT);
+
+  pinMode(yellowPin, OUTPUT);
+
+  pinMode(greenPin, OUTPUT);
+
+}
+
+
+
+void loop() {
+
+  // Red light (stop)
+
+  digitalWrite(redPin, HIGH);
+
+  digitalWrite(yellowPin, LOW);
+
+  digitalWrite(greenPin, LOW);
+
+  delay(2000); // Stay red for 2 seconds
+
+
+
+  // Red and yellow light (prepare to go)
+
+  digitalWrite(redPin, HIGH);
+
+  digitalWrite(yellowPin, HIGH);
+
+  digitalWrite(greenPin, LOW);
+
+  delay(1000); // Show red and yellow for 1 second
+
+
+
+  // Green light (go)
+
+  digitalWrite(redPin, LOW);
+
+  digitalWrite(yellowPin, LOW);
+
+  digitalWrite(greenPin, HIGH);
+
+  delay(2000); // Stay green for 2 seconds
+
+
+
+  // Yellow light (prepare to stop)
+
+  digitalWrite(redPin, LOW);
+
+  digitalWrite(yellowPin, HIGH);
+
+  digitalWrite(greenPin, LOW);
+
+  delay(1000); // Show yellow for 1 second
+
+}
+
+// Pin connected to the piezo buzzer
+
+const int buzzerPin = 9;
+
+
+
+// Define the melody notes (0 = rest)
+
+int melody[] = {NOTE_C4, NOTE_G3, NOTE_E3, NOTE_A3, NOTE_B3, NOTE_AS3, NOTE_A3, NOTE_G3, NOTE_E4, NOTE_D4, NOTE_E4, NOTE_A4, 0};
+
+int noteDurations[] = {4, 8, 8, 4, 4, 4, 4, 4, 4, 4, 8, 4, 4};
+
+
+
+void setup() {
+
+  // No setup is required
+
+}
+
+
+
+void loop() {
+
+  for (int i = 0; melody[i] != 0; i++) {
+
+    int noteDuration = 1000 / noteDurations[i];
+
+    tone(buzzerPin, melody[i], noteDuration);
+
+    delay(noteDuration + 50); // Add a small gap between notes
+
+  }
+
+  noTone(buzzerPin); // Stop playing
+
+  delay(500); // Delay before playing the melody again
+
+}
+const int soundPin = A0; // Analog pin for the sound sensor
+
+const int ledPin = 13;   // Digital pin for the LED
+
+
+
+int threshold = 500;     // Adjust this threshold based on your environment
+
+
+
+void setup() {
+
+  pinMode(ledPin, OUTPUT);
+
+  pinMode(soundPin, INPUT);
+
+  Serial.begin(9600);
+
+}
+
+
+
+void loop() {
+
+  int soundValue = analogRead(soundPin);
+
+
+
+  if (soundValue > threshold) {
+
+    digitalWrite(ledPin, HIGH);
+
+    Serial.println("Clap detected!");
+
+    delay(500);  // Delay to avoid multiple triggers on a single clap
+
+  } else {
+
+    digitalWrite(ledPin, LOW);
+
+  }
+
+}
+
+fading 
+// Pin connected to the LED
+
+const int ledPin = 9;
+
+
+
+// Variables
+
+int brightness = 0;    // Current brightness level
+
+int fadeAmount = 5;    // Amount by which to change the brightness
+
+
+
+void setup() {
+
+  // Initialize the LED pin as an output
+
+  pinMode(ledPin, OUTPUT);
+
+}
+
+
+
+void loop() {
+
+  // Increase brightness
+
+  brightness = brightness + fadeAmount;
+
+
+
+  // Reverse the direction of fading when it reaches 0 or 255
+
+  if (brightness <= 0 || brightness >= 255) {
+
+    fadeAmount = -fadeAmount;
+
+  }
+
+
+
+  // Set the brightness of the LED
+
+  analogWrite(ledPin, brightness);
+
+
+
+  // Delay for smooth fading effect
+
+  delay(30);
+
+}
+ldr
+int ledpin=6;
+
+int ldrpin=A0;
+
+void setup() {
+
+ 
+
+  pinMode(ldrpin, INPUT);
+
+  pinMode(ledpin, OUTPUT);
+
+  Serial.begin(9600);
+
+}
+
+int value;
+
+void loop(){
+
+  value=analogRead(A0);
+
+  Serial.println(value);
+
+  if (value>1020)
+
+  {
+
+    digitalWrite(ledpin, LOW);
+
+  }
+
+  else{
+
+    digitalWrite(ledpin, HIGH);   
+
+   } 
+
+  delay(50);
+
+  }
+ultrasonic
+#define trig 5
+
+#define eco 9
+
+int buzzer=10;
+
+float duration;
+
+float cm;
+
+
+
+void setup(){
+
+  pinMode(trig, OUTPUT);
+
+  pinMode(eco, INPUT);
+
+  pinMode(buzzer, OUTPUT);
+
+  Serial.begin(9600);
+
+}
+
+void loop(){
+
+  digitalWrite(trig,LOW);
+
+  delayMicroseconds(2);
+
+  digitalWrite(trig,HIGH);
+
+  delayMicroseconds(10);
+
+  digitalWrite(buzzer, HIGH);
+
+  delayMicroseconds(10);
+
+  digitalWrite(trig,LOW);
+
+ 
+
+
+
+  duration=pulseIn(eco,HIGH);
+
+  cm=duration*0.034/2;
+
+
+
+  Serial.print("distance=");
+
+  Serial.print(cm);
+
+  Serial.print("\n");
+
+  delay(10);
+
+}
+
+
+
